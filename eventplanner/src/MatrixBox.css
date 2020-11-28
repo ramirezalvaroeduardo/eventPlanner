@@ -1,0 +1,22 @@
+
+.MatrixButton {
+    width: 150px;
+    height: 150px;
+    margin: 2px;
+    background-color: rgb(29, 114, 129);
+    border-radius: 5px;
+    box-shadow: blanchedalmond;
+}
+
+.MatrixBox {
+    margin: 1em;
+    text-align: center;
+}
+
+.Title {
+    justify-content: center;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 700;
+    font-size: 2.5em;
+}
