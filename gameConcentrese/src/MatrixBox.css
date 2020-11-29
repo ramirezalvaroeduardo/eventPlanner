@@ -3,7 +3,7 @@
     width: 150px;
     height: 150px;
     margin: 2px;
-    background-color: rgb(29, 114, 129);
+    background-color: rgb(71, 61, 10);
     border-radius: 5px;
     box-shadow: blanchedalmond;
 }
@@ -13,10 +13,19 @@
     text-align: center;
 }
 
+.MatrixIcon {
+    zoom: 4;
+}
+
 .Title {
+    margin: 2rem 2rem 0.8rem 2rem;
+    padding: 1.4rem;
     justify-content: center;
     text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 700;
     font-size: 2.5em;
+    color: rgb(71, 61, 10);
+    background-color: rgb(218, 214, 199);
+    border-radius: 10px;
 }

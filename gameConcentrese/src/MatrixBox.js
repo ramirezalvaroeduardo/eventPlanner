@@ -1,10 +1,20 @@
 
+
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 import './MatrixBox.css'
+//import { library } from '@fortawesome/fontawesome-svg-core';
+//import { fas } from '@fortawesome/free-solid-svg-icons';
 
-function MatrixBox( props )  {
+import getFAS from './getAwesomeFontThemes';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+function MatrixBox( props ){
     return (
-        <Button variant='primary' size='lg' className='MatrixButton'>{ props.value }</Button>
+        <Button variant='primary' size='lg' 
+            className='MatrixButton'>
+            <FontAwesomeIcon className='MatrixIcon' icon={ props.iconVal } />
+        </Button>
     )
 }
 
@@ -34,14 +44,19 @@ function MatrixGroup( props ) {
     for( let item in boxObj ){
         boxArray.push( boxObj[item] );
     }
-    console.log(boxObj);
+    //console.log(boxObj);
+    //console.log( boxArray );
 
+    var fasArray = getFAS();
+    //console.log( fasArray );
+    
     return (
         <div  className='MatrixBox'>
             <h1 className='Title'>CONCENTRESE</h1>
             {boxArray.map(( boxId, index ) => (
-                <MatrixBox key={index + 1} value={boxId}>{boxId}</MatrixBox>
+                <MatrixBox key={index + 1} value={boxId} iconVal={fasArray[boxId]}></MatrixBox>
             ))}
+            
         </div>
     )
 }

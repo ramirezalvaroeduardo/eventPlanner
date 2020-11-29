@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -5,10 +6,11 @@ import './index.css';
 
 import TopMenu from './TopMenu';
 import MatrixBox from './MatrixBox';
-import getFAS from './getAwesomeFontThemes';
+import getFA from './getAwesomeFontThemes';
 
-var fasArray = getFAS();
-//console.log( fasArray );
+//var fasArray = getFAS();
+//var faArray = getFA();
+//console.log( faArray );
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,7 +22,6 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-console.log( Math.floor( Math.random() * ( Math.floor( 1002 ) - Math.ceil( 1 ) + 1 ) ) );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
