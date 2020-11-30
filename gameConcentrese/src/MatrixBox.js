@@ -84,7 +84,12 @@ function checkClickedButton( event ){
     } else if( chosenBoxes.length === 1 && chosenId !== chosenBoxes[0].chosenId ) {
         chosenBoxes.push( chosenObj );
         // Make decision to increase result or return boxes //
-        handleChosenBoxes( chosenBoxes );
+        setTimeout(
+            function(){
+                handleChosenBoxes( chosenBoxes );
+            },
+            500
+        );
     }
 }
 
