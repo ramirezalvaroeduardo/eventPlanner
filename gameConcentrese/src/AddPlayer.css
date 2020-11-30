@@ -1,0 +1,10 @@
+
+.PlayerForm {
+    display: none;
+    margin: 1rem;
+    padding: 1rem 1rem 1rem 1rem;
+    text-align: left;
+    justify-content: left;
+    border: 1px solid rgb(158, 153, 129);
+    border-radius: 0.5rem;
+}

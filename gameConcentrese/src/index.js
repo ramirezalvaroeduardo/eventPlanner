@@ -2,26 +2,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-//import App from './App';
 
-import TopMenu from './TopMenu';
+import getFAS from './getAwesomeFontThemes';
 import MatrixBox from './MatrixBox';
-import getFA from './getAwesomeFontThemes';
+import AddPlayerForm from './AddPlayer';
 
-//var fasArray = getFAS();
-//var faArray = getFA();
-//console.log( faArray );
+let numSquares=20;
+let squareCont=[];
+let fasArray = getFAS();
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <TopMenu />
-    
-    <MatrixBox numBox="20" />
-        
+    <MatrixBox numBox={numSquares} fasArray={fasArray} squareCont={squareCont} />
+    <AddPlayerForm />
+
   </React.StrictMode>,
   document.getElementById('root')
 );
-
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

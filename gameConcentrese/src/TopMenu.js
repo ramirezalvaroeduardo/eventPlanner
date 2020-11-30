@@ -2,37 +2,46 @@
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
-import Button from 'react-bootstrap/Button';
-
-//import 'bootstrap/dist/css/bootstrap.min.css';
-
+let boxArray=[];
 
 function refreshScreen( event ) {
     event.preventDefault();
+    document.querySelector( ".MatrixNumber" ).style.display = "none";
+    document.querySelector( ".MatrixIcon" ).style.display = "block";
     window.location.reload();
-
 }
 
-function TopMenu() {
+function showPlayerForm( event ) {
+    event.preventDefault();
+    document.querySelector( ".MatrixBox" ).style.display = "none";
+    document.querySelector( ".PlayerForm" ).style.display = "block";
+}
+
+function startGame( event ) {
+    event.preventDefault();
+    for( let boxNumber of document.getElementsByClassName( "MatrixNumber" ) ){
+        boxNumber.style.display="block";
+    }
+    for( let boxNumber of document.getElementsByClassName( "MatrixIcon" ) ){
+        boxNumber.style.display="none";
+    }
+}
+
+function TopMenu( props ) {
+    boxArray=props.squareCont;
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="dark" expand="lg" variant="dark">
         <Navbar.Brand href="#home">CONCENTRESE</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#AddPlayer">Add Player</Nav.Link>
-            <NavDropdown title="Options" id="basic-nav-dropdown">
-                <NavDropdown.Item onClick={event => refreshScreen( event )} href="#Reset">Reset</NavDropdown.Item>
-                <NavDropdown.Item href="#Size">Size</NavDropdown.Item>
+            <Nav.Link onClick={event => refreshScreen( event )}>Home</Nav.Link>
+            <Nav.Link onClick={event => showPlayerForm( event )} href="#AddPlayer">Add Player</Nav.Link>
+            <NavDropdown title="Actions" id="basic-nav-dropdown">
+                <NavDropdown.Item onClick={event => refreshScreen( event )}>Reset</NavDropdown.Item>
+                <NavDropdown.Item onClick={event => startGame( event )}>Start</NavDropdown.Item>
             </NavDropdown>
             </Nav>
-            <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-success">Search</Button>
-            </Form>
         </Navbar.Collapse>
         </Navbar>
     )

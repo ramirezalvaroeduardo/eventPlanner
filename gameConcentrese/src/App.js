@@ -4,9 +4,8 @@ function App() {
   return (
     <div>
       <header className="App-header">
-        
         <a>
-          Learn React
+          gameConcentrese
         </a>
       </header>
     </div>
