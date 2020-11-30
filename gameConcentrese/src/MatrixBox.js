@@ -21,7 +21,23 @@ function MatrixBox( props ){
 function handleChosenBoxes( boxPair ) {
     console.log( boxPair );
     if( boxPair[0].chosenIconId === boxPair[1].chosenIconId ) {
-        alert( `You Got It!...\n\nBox: ${boxPair[0].chosenId} matches ${boxPair[0].chosenId}.` );
+        alert( `You Got It!...\n\nBox: ${boxPair[0].chosenId} matches ${boxPair[1].chosenId}.` );
+    } else {
+        boxPair[0].targetElement.children[0].style.display = "block";
+        boxPair[0].targetElement.children[0].style.transition="opacity 1s ease-out";
+        boxPair[0].targetElement.children[0].style.opacity="1";
+        
+        boxPair[0].targetElement.children[1].style.display = "none";
+        boxPair[0].targetElement.children[1].style.transition="opacity 1s ease-out";
+        boxPair[0].targetElement.children[1].style.opacity="1";
+
+        boxPair[1].targetElement.children[0].style.display = "block";
+        boxPair[1].targetElement.children[0].style.transition="opacity 1s ease-out";
+        boxPair[1].targetElement.children[0].style.opacity="1";
+
+        boxPair[1].targetElement.children[1].style.display = "none";
+        boxPair[1].targetElement.children[1].style.transition="opacity 1s ease-out";
+        boxPair[1].targetElement.children[1].style.opacity="1";
     }
     chosenBoxes=[];
 }
@@ -32,19 +48,28 @@ function checkClickedButton( event ){
     let chosenId=0;
     let chosenIconId=0;
     let targetButton=event.target;
+    let targetElement;
     if( targetButton.type === 'button' ) {
         //console.log( event.target.children[1].attributes[3].value );
         chosenIconId=targetButton.attributes.value.value;
         chosenId=targetButton.attributes.id.value;
-        targetButton.children[0].style.display = "none";
-        targetButton.children[1].style.display = "";
+        targetElement=targetButton;
+        targetElement.children[0].style.display="none";
+        targetElement.children[0].style.transition="opacity 1s ease-out";
+        targetElement.children[0].style.opacity="1";
+        targetElement.children[1].style.display = "";
+        targetElement.children[1].style.opacity="1";
     } else {
         if( event.target.parentElement.localName === 'button' ){
             //console.log( event.target.attributes[3].value );
             chosenIconId=targetButton.parentElement.attributes.value.value;
             chosenId=targetButton.parentElement.attributes.id.value;
-            targetButton.parentElement.children[0].style.display = "none";
-            targetButton.parentElement.children[1].style.display = "";
+            targetElement=targetButton.parentElement;
+            targetElement.children[0].style.display="none";
+            targetElement.children[0].style.transition="opacity 1s ease-out";
+            targetElement.children[0].style.opacity="1";
+            targetElement.children[1].style.display = "";
+            targetElement.children[1].style.opacity="1";
         } else {
             //console.log( event.target.parentElement.attributes[3].value );
             chosenIconId=targetButton.parentElement.parentElement.attributes.value.value;
@@ -53,6 +78,7 @@ function checkClickedButton( event ){
     }
     chosenObj['chosenId']=chosenId;
     chosenObj['chosenIconId']=chosenIconId;
+    chosenObj['targetElement']=targetElement;
     if( chosenBoxes.length === 0 ) {
         chosenBoxes.push( chosenObj );
     } else if( chosenBoxes.length === 1 && chosenId !== chosenBoxes[0].chosenId ) {
