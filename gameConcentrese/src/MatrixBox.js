@@ -19,27 +19,36 @@ function MatrixBox( props ){
 }
 
 function handleChosenBoxes( boxPair ) {
-
+    console.log( boxPair );
+    if( boxPair[0].chosenIconId === boxPair[1].chosenIconId ) {
+        alert( `You Got It!...\n\nBox: ${boxPair[0].chosenId} matches ${boxPair[0].chosenId}.` );
+    }
+    chosenBoxes=[];
 }
 
 function checkClickedButton( event ){
+    event.preventDefault();
     let chosenObj={};
     let chosenId=0;
     let chosenIconId=0;
-    event.preventDefault();
-    if( event.target.type === 'button' ) {
-        console.log( event.target.children[1].attributes[3].value );
-        chosenIconId=event.target.attributes.value.value;
-        chosenId=event.target.attributes.id.value;    
+    let targetButton=event.target;
+    if( targetButton.type === 'button' ) {
+        //console.log( event.target.children[1].attributes[3].value );
+        chosenIconId=targetButton.attributes.value.value;
+        chosenId=targetButton.attributes.id.value;
+        targetButton.children[0].style.display = "none";
+        targetButton.children[1].style.display = "";
     } else {
         if( event.target.parentElement.localName === 'button' ){
-            console.log( event.target.attributes[3].value );
-            chosenIconId=event.target.parentElement.attributes.value.value;
-            chosenId=event.target.parentElement.attributes.id.value;
+            //console.log( event.target.attributes[3].value );
+            chosenIconId=targetButton.parentElement.attributes.value.value;
+            chosenId=targetButton.parentElement.attributes.id.value;
+            targetButton.parentElement.children[0].style.display = "none";
+            targetButton.parentElement.children[1].style.display = "";
         } else {
-            console.log( event.target.parentElement.attributes[3].value );
-            chosenIconId=event.target.parentElement.parentElement.attributes.value.value;
-            chosenId=event.target.parentElement.parentElement.attributes.id.value;
+            //console.log( event.target.parentElement.attributes[3].value );
+            chosenIconId=targetButton.parentElement.parentElement.attributes.value.value;
+            chosenId=targetButton.parentElement.parentElement.attributes.id.value;
         }
     }
     chosenObj['chosenId']=chosenId;
@@ -48,9 +57,8 @@ function checkClickedButton( event ){
         chosenBoxes.push( chosenObj );
     } else if( chosenBoxes.length === 1 && chosenId !== chosenBoxes[0].chosenId ) {
         chosenBoxes.push( chosenObj );
-        console.log( chosenBoxes );
         // Make decision to increase result or return boxes //
-        chosenBoxes=[];
+        handleChosenBoxes( chosenBoxes );
     }
 }
 

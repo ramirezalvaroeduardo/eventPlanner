@@ -7,14 +7,14 @@ let boxArray=[];
 function refreshScreen( event ) {
     event.preventDefault();
     document.querySelector( ".MatrixNumber" ).style.display = "none";
-    document.querySelector( ".MatrixIcon" ).style.display = "block";
+    document.querySelector( ".MatrixIcon" ).style.display = "";
     window.location.reload();
 }
 
 function showPlayerForm( event ) {
     event.preventDefault();
     document.querySelector( ".MatrixBox" ).style.display = "none";
-    document.querySelector( ".PlayerForm" ).style.display = "block";
+    document.querySelector( ".PlayerForm" ).style.display = "";
 }
 
 function startGame( event ) {
