@@ -11,12 +11,6 @@ function refreshScreen( event ) {
     window.location.reload();
 }
 
-function showPlayerForm( event ) {
-    event.preventDefault();
-    document.querySelector( ".MatrixBox" ).style.display = "none";
-    document.querySelector( ".PlayerForm" ).style.display = "";
-}
-
 function startGame( event ) {
     event.preventDefault();
     for( let boxNumber of document.getElementsByClassName( "MatrixNumber" ) ){
@@ -26,6 +20,13 @@ function startGame( event ) {
         boxNumber.style.display="none";
     }
 }
+
+function showPlayerForm( event ) {
+    event.preventDefault();
+    document.querySelector( ".MatrixBox" ).style.display = "none";
+    document.querySelector( ".PlayerForm" ).style.display = "block";
+}
+
 
 function TopMenu( props ) {
     boxArray=props.squareCont;

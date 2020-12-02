@@ -3,10 +3,13 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import './MatrixBox.css'
+import './playerBox.css'
 import TopMenu from './TopMenu';
+import PlayerBox from './playerBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 let chosenBoxes=[];
+let canPlay = false;
 
 function MatrixBox( props ){
     return (
@@ -18,26 +21,54 @@ function MatrixBox( props ){
     )
 }
 
-function handleChosenBoxes( boxPair ) {
+function startGame() {
+    for( let boxNumber of document.getElementsByClassName( "MatrixNumber" ) ){
+        boxNumber.style.display="block";
+    }
+    for( let boxNumber of document.getElementsByClassName( "MatrixIcon" ) ){
+        boxNumber.style.display="none";
+    }
+}
+
+function refreshScreen() {
+    document.querySelector( ".MatrixNumber" ).style.display = "none";
+    document.querySelector( ".MatrixIcon" ).style.display = "";
+    window.location.reload();
+}
+
+
+function handleAction( event ){
+    event.preventDefault();
+    let actionItem = document.getElementById( "PHeader" );
+    console.log(actionItem.textContent);
+    if( actionItem.textContent === "Start") {
+        canPlay = true;
+        actionItem.textContent = "Reset";
+        startGame();
+    } else {
+        canPlay = false;
+        actionItem.textContent = "Start";
+        refreshScreen();
+    }
+}
+
+function handleChosenBoxes( boxPair ){
     console.log( boxPair );
     if( boxPair[0].chosenIconId === boxPair[1].chosenIconId ) {
-        alert( `You Got It!...\n\nBox: ${boxPair[0].chosenId} matches ${boxPair[1].chosenId}.` );
+        boxPair[0].targetElement.onclick = "function(){return false}";
+        boxPair[1].targetElement.onclick = "function(){return false}";
+        boxPair[0].targetElement.disabled = "disabled";
+        boxPair[0].targetElement.style.background =  "rgb(5, 100, 5)";
+        boxPair[1].targetElement.disabled = "disabled";
+        boxPair[1].targetElement.style.background =  "rgb(5, 100, 5)";
     } else {
         boxPair[0].targetElement.children[0].style.display = "block";
-        boxPair[0].targetElement.children[0].style.transition="opacity 1s ease-out";
-        boxPair[0].targetElement.children[0].style.opacity="1";
-        
+        //
         boxPair[0].targetElement.children[1].style.display = "none";
-        boxPair[0].targetElement.children[1].style.transition="opacity 1s ease-out";
-        boxPair[0].targetElement.children[1].style.opacity="1";
-
+        //
         boxPair[1].targetElement.children[0].style.display = "block";
-        boxPair[1].targetElement.children[0].style.transition="opacity 1s ease-out";
-        boxPair[1].targetElement.children[0].style.opacity="1";
-
+        //
         boxPair[1].targetElement.children[1].style.display = "none";
-        boxPair[1].targetElement.children[1].style.transition="opacity 1s ease-out";
-        boxPair[1].targetElement.children[1].style.opacity="1";
     }
     chosenBoxes=[];
 }
@@ -49,47 +80,55 @@ function checkClickedButton( event ){
     let chosenIconId=0;
     let targetButton=event.target;
     let targetElement;
-    if( targetButton.type === 'button' ) {
-        //console.log( event.target.children[1].attributes[3].value );
-        chosenIconId=targetButton.attributes.value.value;
-        chosenId=targetButton.attributes.id.value;
-        targetElement=targetButton;
-        targetElement.children[0].style.display="none";
-        targetElement.children[0].style.transition="opacity 1s ease-out";
-        targetElement.children[0].style.opacity="1";
-        targetElement.children[1].style.display = "";
-        targetElement.children[1].style.opacity="1";
-    } else {
-        if( event.target.parentElement.localName === 'button' ){
-            //console.log( event.target.attributes[3].value );
-            chosenIconId=targetButton.parentElement.attributes.value.value;
-            chosenId=targetButton.parentElement.attributes.id.value;
-            targetElement=targetButton.parentElement;
+    if( canPlay &&
+        !(
+            targetButton.attributes.disabled || 
+            targetButton.parentElement.attributes.disabled ||
+            targetButton.parentElement.parentElement.attributes.disabled
+        )
+    ) {
+        if( targetButton.type === 'button' ) {
+            //console.log( event.target.children[1].attributes[3].value );
+            chosenIconId=targetButton.attributes.value.value;
+            chosenId=targetButton.attributes.id.value;
+            targetElement=targetButton;
             targetElement.children[0].style.display="none";
             targetElement.children[0].style.transition="opacity 1s ease-out";
             targetElement.children[0].style.opacity="1";
             targetElement.children[1].style.display = "";
             targetElement.children[1].style.opacity="1";
         } else {
-            //console.log( event.target.parentElement.attributes[3].value );
-            chosenIconId=targetButton.parentElement.parentElement.attributes.value.value;
-            chosenId=targetButton.parentElement.parentElement.attributes.id.value;
+            if( targetButton.parentElement.localName === 'button' && ! targetButton.parentElement.disabled ){
+                //console.log( event.target.attributes[3].value );
+                chosenIconId=targetButton.parentElement.attributes.value.value;
+                chosenId=targetButton.parentElement.attributes.id.value;
+                targetElement=targetButton.parentElement;
+                targetElement.children[0].style.display="none";
+                targetElement.children[0].style.transition="opacity 1s ease-out";
+                targetElement.children[0].style.opacity="1";
+                targetElement.children[1].style.display = "";
+                targetElement.children[1].style.opacity="1";
+            } else {
+                //console.log( event.target.parentElement.attributes[3].value );
+                chosenIconId=targetButton.parentElement.parentElement.attributes.value.value;
+                chosenId=targetButton.parentElement.parentElement.attributes.id.value;
+            }
         }
-    }
-    chosenObj['chosenId']=chosenId;
-    chosenObj['chosenIconId']=chosenIconId;
-    chosenObj['targetElement']=targetElement;
-    if( chosenBoxes.length === 0 ) {
-        chosenBoxes.push( chosenObj );
-    } else if( chosenBoxes.length === 1 && chosenId !== chosenBoxes[0].chosenId ) {
-        chosenBoxes.push( chosenObj );
-        // Make decision to increase result or return boxes //
-        setTimeout(
-            function(){
-                handleChosenBoxes( chosenBoxes );
-            },
-            500
-        );
+        chosenObj['chosenId']=chosenId;
+        chosenObj['chosenIconId']=chosenIconId;
+        chosenObj['targetElement']=targetElement;
+        if( chosenBoxes.length === 0 ) {
+            chosenBoxes.push( chosenObj );
+        } else if( chosenBoxes.length === 1 && chosenId !== chosenBoxes[0].chosenId ) {
+            chosenBoxes.push( chosenObj );
+            // Make decision to increase result or return boxes //
+            setTimeout(
+                function(){
+                    handleChosenBoxes( chosenBoxes );
+                },
+                250
+            );
+        }
     }
 }
 
@@ -123,9 +162,26 @@ function MatrixGroup( props ) {
         boxArray.push( boxObj[item] );
     }
 
+    let playerArray=[
+        {"playerId":"1", "playerAlias":"Player 1"},
+        {"playerId":"0", "playerAlias": "Start"},
+        {"playerId":"2", "playerAlias":"Player 2"}
+    ]
+
     return (
         <div>
-            <TopMenu squareCont={boxArray} />
+            <TopMenu squareCont={boxArray} canPlay={canPlay} />
+            <div className="PlayerBox">
+                <PlayerBox key={1} id="P1" cardHeader="Player 1" playerScore="0" className="PlayerCard"/>
+                <PlayerBox key={3} id="Action" 
+                    cardHeader="Start"
+                    name="Start"
+                    headerId="PHeader"
+                    playerScore="" 
+                    className="ActionButton"
+                    onClick={event => handleAction( event )}/>
+                <PlayerBox key={2} id="P2" cardHeader="Player 2" playerScore="0" className="PlayerCard"/>
+            </div>
             <h1 className='Title'>CONCENTRESE</h1>
             <div className='MatrixBox'>
                 {boxArray.map(( boxId, index ) => (
@@ -133,7 +189,8 @@ function MatrixGroup( props ) {
                         onClick={event => checkClickedButton( event )} 
                         id={index + 1} 
                         value={boxId} 
-                        iconVal={fasArray[boxId]}>
+                        iconVal={fasArray[boxId]}
+                    >
                     </MatrixBox>
                 ))}
             </div>
