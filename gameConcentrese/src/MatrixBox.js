@@ -52,22 +52,28 @@ function handleAction( event ){
     }
 }
 
+function increaseScore( PlayerSC ){
+    let playerScore = document.getElementById( PlayerSC );
+    //let currentScore = Number( playerScore.textContent );
+    playerScore.textContent = Number( playerScore.textContent ) + 1
+}
+
 function handleChosenBoxes( boxPair ){
     console.log( boxPair );
     if( boxPair[0].chosenIconId === boxPair[1].chosenIconId ) {
+        // Selections Matched
         boxPair[0].targetElement.onclick = "function(){return false}";
         boxPair[1].targetElement.onclick = "function(){return false}";
         boxPair[0].targetElement.disabled = "disabled";
         boxPair[0].targetElement.style.background =  "rgb(5, 100, 5)";
         boxPair[1].targetElement.disabled = "disabled";
         boxPair[1].targetElement.style.background =  "rgb(5, 100, 5)";
+        increaseScore( "S1" );
     } else {
+        // Selections DO NOT Match
         boxPair[0].targetElement.children[0].style.display = "block";
-        //
         boxPair[0].targetElement.children[1].style.display = "none";
-        //
         boxPair[1].targetElement.children[0].style.display = "block";
-        //
         boxPair[1].targetElement.children[1].style.display = "none";
     }
     chosenBoxes=[];
@@ -172,7 +178,7 @@ function MatrixGroup( props ) {
         <div>
             <TopMenu squareCont={boxArray} canPlay={canPlay} />
             <div className="PlayerBox">
-                <PlayerBox key={1} id="P1" cardHeader="Player 1" playerScore="0" className="PlayerCard"/>
+                <PlayerBox key={1} headerId="P1" scoreId="S1" cardHeader="Player 1" playerScore="0" className="PlayerCard"/>
                 <PlayerBox key={3} id="Action" 
                     cardHeader="Start"
                     name="Start"
@@ -180,7 +186,7 @@ function MatrixGroup( props ) {
                     playerScore="" 
                     className="ActionButton"
                     onClick={event => handleAction( event )}/>
-                <PlayerBox key={2} id="P2" cardHeader="Player 2" playerScore="0" className="PlayerCard"/>
+                <PlayerBox key={2} headerId="P2" scoreId="S2" cardHeader="Player 2" playerScore="0" className="PlayerCard"/>
             </div>
             <h1 className='Title'>CONCENTRESE</h1>
             <div className='MatrixBox'>

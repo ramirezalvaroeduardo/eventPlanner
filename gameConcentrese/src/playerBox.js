@@ -12,20 +12,9 @@ function playerBox( props ) {
     return (
         <Button id={playerId} value={playerId} className={className} onClick={props.onClick}>
             <p id={props.headerId}>{cardHeader}</p>
-            <p>{playerScore}</p>
+            <p id={props.scoreId}>{playerScore}</p>
         </Button>
     )
 }
 
-
 export default playerBox;
-
-        /*
-        <Card border="dark" style={{ width: '18rem'}}>
-            <Card.Header>{playerId}</Card.Header>
-            <Card.Body>
-                <Card.Title>Player {playerId}</Card.Title>
-                <Card.Text>{playerScore}</Card.Text>
-            </Card.Body>
-        </Card>
-        */
