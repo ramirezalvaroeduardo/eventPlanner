@@ -21,4 +21,4 @@ Any person(s) looking for brain exercising.
 
 ## Wireframe
 Please click on the following link:
-[Wireframe Click here!](./wireFrame/gameConcentrese.png)
+[Wireframe Click here!](../wireFrame/gameConcentrese.png)
