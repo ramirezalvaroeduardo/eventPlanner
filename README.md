@@ -15,10 +15,10 @@ Steps to Play:
 Any person(s) looking for brain exercising.
 
 ## User Stories
-- As a traveler, I want to 
-- As a student, I want to 
-- As an employee, I want to 
+- As a confined person, I want to maintained the brain focused.
+- As a afther, I want to keep my kids busy and entretained.
+- As a couple (husband and wife), we want to have a a good time together.   
 
 ## Wireframe
 Please click on the following link:
-[Wireframe Click here!](./wireFrame/cityWeatherConditions.png)
+[Wireframe Click here!](./wireFrame/gameConcentrese.png)
