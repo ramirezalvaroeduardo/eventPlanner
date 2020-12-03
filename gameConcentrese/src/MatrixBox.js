@@ -1,5 +1,4 @@
 
-
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import './MatrixBox.css'
@@ -10,6 +9,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 let chosenBoxes=[];
 let canPlay = false;
+let playerBool=false;
+let playerTurn="S0";
 
 function MatrixBox( props ){
     return (
@@ -40,10 +41,13 @@ function refreshScreen() {
 function handleAction( event ){
     event.preventDefault();
     let actionItem = document.getElementById( "PHeader" );
-    console.log(actionItem.textContent);
     if( actionItem.textContent === "Start") {
         canPlay = true;
         actionItem.textContent = "Reset";
+        let firstPlayer = document.getElementById( "P0" );
+        let secondPlayer = document.getElementById( "P1" );
+        firstPlayer.parentElement.style.background = "rgb(0, 100, 170)";
+        secondPlayer.parentElement.style.background = "rgb(170, 40, 10)";
         startGame();
     } else {
         canPlay = false;
@@ -52,14 +56,23 @@ function handleAction( event ){
     }
 }
 
+function switchPlayer(){
+    let currPlayerScoreNumber = "S" + Number( playerBool );
+    let currPlayer = document.getElementById( currPlayerScoreNumber );
+    currPlayer.parentElement.style.background = "rgb(170, 40, 10)";
+    playerBool = !playerBool;
+    let nextPlayerScoreNumber = "S" + Number( playerBool );
+    let nextPlayer = document.getElementById( nextPlayerScoreNumber );
+    nextPlayer.parentElement.style.background = "rgb(0, 100, 170)";
+    return nextPlayerScoreNumber;
+}
+
 function increaseScore( PlayerSC ){
     let playerScore = document.getElementById( PlayerSC );
-    //let currentScore = Number( playerScore.textContent );
     playerScore.textContent = Number( playerScore.textContent ) + 1
 }
 
 function handleChosenBoxes( boxPair ){
-    console.log( boxPair );
     if( boxPair[0].chosenIconId === boxPair[1].chosenIconId ) {
         // Selections Matched
         boxPair[0].targetElement.onclick = "function(){return false}";
@@ -68,13 +81,14 @@ function handleChosenBoxes( boxPair ){
         boxPair[0].targetElement.style.background =  "rgb(5, 100, 5)";
         boxPair[1].targetElement.disabled = "disabled";
         boxPair[1].targetElement.style.background =  "rgb(5, 100, 5)";
-        increaseScore( "S1" );
+        increaseScore( playerTurn );
     } else {
         // Selections DO NOT Match
         boxPair[0].targetElement.children[0].style.display = "block";
         boxPair[0].targetElement.children[1].style.display = "none";
         boxPair[1].targetElement.children[0].style.display = "block";
         boxPair[1].targetElement.children[1].style.display = "none";
+        playerTurn = switchPlayer();
     }
     chosenBoxes=[];
 }
@@ -168,17 +182,11 @@ function MatrixGroup( props ) {
         boxArray.push( boxObj[item] );
     }
 
-    let playerArray=[
-        {"playerId":"1", "playerAlias":"Player 1"},
-        {"playerId":"0", "playerAlias": "Start"},
-        {"playerId":"2", "playerAlias":"Player 2"}
-    ]
-
     return (
         <div>
             <TopMenu squareCont={boxArray} canPlay={canPlay} />
             <div className="PlayerBox">
-                <PlayerBox key={1} headerId="P1" scoreId="S1" cardHeader="Player 1" playerScore="0" className="PlayerCard"/>
+                <PlayerBox key={1} headerId="P0" scoreId="S0" cardHeader="Player 1" playerScore="0" className="PlayerCard"/>
                 <PlayerBox key={3} id="Action" 
                     cardHeader="Start"
                     name="Start"
@@ -186,7 +194,7 @@ function MatrixGroup( props ) {
                     playerScore="" 
                     className="ActionButton"
                     onClick={event => handleAction( event )}/>
-                <PlayerBox key={2} headerId="P2" scoreId="S2" cardHeader="Player 2" playerScore="0" className="PlayerCard"/>
+                <PlayerBox key={2} headerId="P1" scoreId="S1" cardHeader="Player 2" playerScore="0" className="PlayerCard"/>
             </div>
             <h1 className='Title'>CONCENTRESE</h1>
             <div className='MatrixBox'>

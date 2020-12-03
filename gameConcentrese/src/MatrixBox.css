@@ -1,4 +1,12 @@
 
+.MatrixBox {
+    display: none;
+    margin: 0.1em;
+    padding: 0.1rem 5rem 0.1rem 5rem;
+    text-align: center;
+    justify-content: center;
+}
+
 .MatrixButton {
     width: 150px;
     height: 150px;
@@ -6,13 +14,6 @@
     background-color: rgb(71, 61, 10);
     border-radius: 5px;
     box-shadow: blanchedalmond;
-}
-
-.MatrixBox {
-    margin: 0.1em;
-    padding: 0.1rem 5rem 0.1rem 5rem;
-    text-align: center;
-    justify-content: center;
 }
 
 .MatrixIcon {
