@@ -2,7 +2,7 @@
 .MatrixBox {
     display: none;
     margin: 0.1em;
-    padding: 0.1rem 5rem 0.1rem 5rem;
+    padding: 0.1rem 10rem;
     text-align: center;
     justify-content: center;
 }
@@ -40,8 +40,22 @@
     border-radius: 10px;
 }
 
-@media (max-width: 48em) {
+@media (max-width: 64rem) {
     .Title {
         font-size: 1.25rem;
     }
+    .MatrixBox {
+        padding: 0.1rem 0.25rem;
+    }
+	.MatrixButton {
+		zoom: 0.5;
+	}
+	.MatrixIcon {
+		zoom: 2;
+	}
+	.MatrixNumber {
+		zoom: 2;
+	}
+
   }
+
