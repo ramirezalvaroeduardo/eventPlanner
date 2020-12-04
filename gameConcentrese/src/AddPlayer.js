@@ -31,7 +31,15 @@ function showMatrixForm() {
 function AddPlayerForm() {
     return(
         <div className='PlayerForm'>
-            <h3>Player Name Form</h3>
+            <h3>Quick Start</h3>
+            <ul>
+                <li>Add Player Names and Press Submit (twice)</li>
+                <li>In Next Scree memorize pairs of boxes</li>
+                <li>Press Start</li>
+                <li>Click on a pair of buttons</li>
+                <li>(If no match, game will switch Player.)</li>
+                <li>(Scores will be updated accordingly.) </li>
+            </ul>
             <Form>
                 <Form.Group controlId="formGroupFullName">
                     <Form.Label>Player Name</Form.Label>
