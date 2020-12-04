@@ -1,5 +1,5 @@
 # gameConcentrese
-( [Hosted at, please click here] (https://github.com/ramirezalvaroeduardo/gameConcentrese) )
+( [Hosted at, please click here] ( https://ramirezalvaroeduardo.github.io/gameConcentrese)
 
 ## Introduction
 Old game from the 60/70s, possibly imported to Latin America by the name of Concentrese.
