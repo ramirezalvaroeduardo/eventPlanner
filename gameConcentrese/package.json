@@ -24,7 +24,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://ramirezalvaroeduardo.github.io/gameConcentrese",
   "eslintConfig": {
     "extends": [
       "react-app",
