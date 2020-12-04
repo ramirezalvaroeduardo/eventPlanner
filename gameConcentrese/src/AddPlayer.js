@@ -33,12 +33,13 @@ function AddPlayerForm() {
         <div className='PlayerForm'>
             <h3>Quick Start</h3>
             <ul>
-                <li>Add Player Names and Press Submit (twice)</li>
-                <li>In Next Scree memorize pairs of boxes</li>
-                <li>Press Start</li>
-                <li>Click on a pair of buttons</li>
-                <li>(If no match, game will switch Player.)</li>
-                <li>(Scores will be updated accordingly.) </li>
+                <li>Add Player Names and Press Submit (Two Players)</li>
+                <li>20 Box Icons Matrix Apprears (Memorize by Pairs)</li>
+                <li>Press Start (Green Button)</li>
+                <li>Click on Pair of Button Numbers</li>
+                <li> - If No Match, Game will switch Player.)</li>
+                <li> - Scores will be updated accordingly.)</li>
+                <li>Press Reset Button to Start another Game.</li>
             </ul>
             <Form>
                 <Form.Group controlId="formGroupFullName">

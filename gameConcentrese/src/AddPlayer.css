@@ -9,3 +9,12 @@
     border-radius: 0.5rem;
     color:  rgb(231, 30, 16);
 }
+
+@media (max-width: 64rem) {
+    li {
+        font-size: .7rem;
+    }
+    h3 {
+        font-size: 1rem;
+    }
+}
