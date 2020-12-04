@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/ramirezalvaroeduardo.github.io/gameConcentrese/static/css/main.bbccf8e8.chunk.css",
+    "main.js": "/ramirezalvaroeduardo.github.io/gameConcentrese/static/js/main.7afa0dec.chunk.js",
+    "main.js.map": "/ramirezalvaroeduardo.github.io/gameConcentrese/static/js/main.7afa0dec.chunk.js.map",
+    "runtime-main.js": "/ramirezalvaroeduardo.github.io/gameConcentrese/static/js/runtime-main.ec35c0dd.js",
+    "runtime-main.js.map": "/ramirezalvaroeduardo.github.io/gameConcentrese/static/js/runtime-main.ec35c0dd.js.map",
+    "static/js/2.aacb76dc.chunk.js": "/ramirezalvaroeduardo.github.io/gameConcentrese/static/js/2.aacb76dc.chunk.js",
+    "static/js/2.aacb76dc.chunk.js.map": "/ramirezalvaroeduardo.github.io/gameConcentrese/static/js/2.aacb76dc.chunk.js.map",
+    "index.html": "/ramirezalvaroeduardo.github.io/gameConcentrese/index.html",
+    "static/css/main.bbccf8e8.chunk.css.map": "/ramirezalvaroeduardo.github.io/gameConcentrese/static/css/main.bbccf8e8.chunk.css.map",
+    "static/js/2.aacb76dc.chunk.js.LICENSE.txt": "/ramirezalvaroeduardo.github.io/gameConcentrese/static/js/2.aacb76dc.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ec35c0dd.js",
+    "static/js/2.aacb76dc.chunk.js",
+    "static/css/main.bbccf8e8.chunk.css",
+    "static/js/main.7afa0dec.chunk.js"
+  ]
+}
