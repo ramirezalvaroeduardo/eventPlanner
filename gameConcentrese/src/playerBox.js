@@ -1,8 +1,7 @@
 
-//import Card from 'react-bootstrap/Card';
-import React from 'react';
-import Button from 'react-bootstrap/Button';
-import './playerBox.css'
+import React from "react";
+import Button from "react-bootstrap/Button";
+import "./playerBox.css";
 
 function playerBox( props ) {
     let playerId=props.id;

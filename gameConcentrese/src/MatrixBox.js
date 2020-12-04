@@ -1,11 +1,11 @@
 
-import React from 'react';
-import Button from 'react-bootstrap/Button';
-import './MatrixBox.css'
-import './playerBox.css'
-import TopMenu from './TopMenu';
-import PlayerBox from './playerBox';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from "react";
+import Button from "react-bootstrap/Button";
+import "./MatrixBox.css"
+import "./playerBox.css"
+import TopMenu from "./TopMenu";
+import PlayerBox from "./playerBox";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 let chosenBoxes=[];
 let canPlay = false;
@@ -14,10 +14,10 @@ let playerTurn="S0";
 
 function MatrixBox( props ){
     return (
-        <Button variant='primary' size='lg' onClick={ props.onClick }
-            className='MatrixButton' value={ props.value } id={ props.id }>
-            <i className='fa fa-star MatrixNumber'>{ props.id }</i>
-            <FontAwesomeIcon className='MatrixIcon' icon={ props.iconVal } />
+        <Button variant="primary" size="lg" onClick={ props.onClick }
+            className="MatrixButton" value={ props.value } id={ props.id }>
+            <i className="fa fa-star MatrixNumber">{ props.id }</i>
+            <FontAwesomeIcon className="MatrixIcon" icon={ props.iconVal } />
         </Button>
     )
 }
@@ -69,7 +69,7 @@ function switchPlayer(){
 
 function increaseScore( PlayerSC ){
     let playerScore = document.getElementById( PlayerSC );
-    playerScore.textContent = Number( playerScore.textContent ) + 1
+    playerScore.textContent = Number( playerScore.textContent ) + 1;
 }
 
 function handleChosenBoxes( boxPair ){
@@ -107,8 +107,7 @@ function checkClickedButton( event ){
             targetButton.parentElement.parentElement.attributes.disabled
         )
     ) {
-        if( targetButton.type === 'button' ) {
-            //console.log( event.target.children[1].attributes[3].value );
+        if( targetButton.type === "button" ) {
             chosenIconId=targetButton.attributes.value.value;
             chosenId=targetButton.attributes.id.value;
             targetElement=targetButton;
@@ -118,8 +117,7 @@ function checkClickedButton( event ){
             targetElement.children[1].style.display = "";
             targetElement.children[1].style.opacity="1";
         } else {
-            if( targetButton.parentElement.localName === 'button' && ! targetButton.parentElement.disabled ){
-                //console.log( event.target.attributes[3].value );
+            if( targetButton.parentElement.localName === "button" && ! targetButton.parentElement.disabled ){
                 chosenIconId=targetButton.parentElement.attributes.value.value;
                 chosenId=targetButton.parentElement.attributes.id.value;
                 targetElement=targetButton.parentElement;
@@ -129,14 +127,13 @@ function checkClickedButton( event ){
                 targetElement.children[1].style.display = "";
                 targetElement.children[1].style.opacity="1";
             } else {
-                //console.log( event.target.parentElement.attributes[3].value );
                 chosenIconId=targetButton.parentElement.parentElement.attributes.value.value;
                 chosenId=targetButton.parentElement.parentElement.attributes.id.value;
             }
         }
-        chosenObj['chosenId']=chosenId;
-        chosenObj['chosenIconId']=chosenIconId;
-        chosenObj['targetElement']=targetElement;
+        chosenObj["chosenId"]=chosenId;
+        chosenObj["chosenIconId"]=chosenIconId;
+        chosenObj["targetElement"]=targetElement;
         if( chosenBoxes.length === 0 ) {
             chosenBoxes.push( chosenObj );
         } else if( chosenBoxes.length === 1 && chosenId !== chosenBoxes[0].chosenId ) {
@@ -196,8 +193,8 @@ function MatrixGroup( props ) {
                     onClick={event => handleAction( event )}/>
                 <PlayerBox key={2} headerId="P1" scoreId="S1" cardHeader="Player 2" playerScore="0" className="PlayerCard"/>
             </div>
-            <h1 className='Title'>CONCENTRESE</h1>
-            <div className='MatrixBox'>
+            <h1 className="Title">CONCENTRESE</h1>
+            <div className="MatrixBox">
                 {boxArray.map(( boxId, index ) => (
                     <MatrixBox key={index + 1} 
                         onClick={event => checkClickedButton( event )} 

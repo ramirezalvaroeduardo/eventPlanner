@@ -10,7 +10,7 @@ function submitPlayer( event ){
     if( playerNames.length < 2 ) {
         let playerName = document.getElementsByName( "playerName" );
         if( playerName[0].value === "" || playerName[0].value.length > 12 ) {
-            alert( "Player Name should not be empty or longer than 12 characters." )
+            alert( "Player Name should not be empty or longer than 12 characters." );
         } else {
             let playerHeader = document.getElementById( "P" + playerNames.length );
             playerNames.push( playerName[0].value );
