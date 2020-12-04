@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.bbccf8e8.chunk.css",
-    "main.js": "/static/js/main.7afa0dec.chunk.js",
-    "main.js.map": "/static/js/main.7afa0dec.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.37bd7d18.js",
-    "runtime-main.js.map": "/static/js/runtime-main.37bd7d18.js.map",
-    "static/js/2.aacb76dc.chunk.js": "/static/js/2.aacb76dc.chunk.js",
-    "static/js/2.aacb76dc.chunk.js.map": "/static/js/2.aacb76dc.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.bbccf8e8.chunk.css.map": "/static/css/main.bbccf8e8.chunk.css.map",
-    "static/js/2.aacb76dc.chunk.js.LICENSE.txt": "/static/js/2.aacb76dc.chunk.js.LICENSE.txt"
+    "main.css": "/gameConcentrese/static/css/main.bbccf8e8.chunk.css",
+    "main.js": "/gameConcentrese/static/js/main.7afa0dec.chunk.js",
+    "main.js.map": "/gameConcentrese/static/js/main.7afa0dec.chunk.js.map",
+    "runtime-main.js": "/gameConcentrese/static/js/runtime-main.54ecf796.js",
+    "runtime-main.js.map": "/gameConcentrese/static/js/runtime-main.54ecf796.js.map",
+    "static/js/2.aacb76dc.chunk.js": "/gameConcentrese/static/js/2.aacb76dc.chunk.js",
+    "static/js/2.aacb76dc.chunk.js.map": "/gameConcentrese/static/js/2.aacb76dc.chunk.js.map",
+    "index.html": "/gameConcentrese/index.html",
+    "static/css/main.bbccf8e8.chunk.css.map": "/gameConcentrese/static/css/main.bbccf8e8.chunk.css.map",
+    "static/js/2.aacb76dc.chunk.js.LICENSE.txt": "/gameConcentrese/static/js/2.aacb76dc.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.37bd7d18.js",
+    "static/js/runtime-main.54ecf796.js",
     "static/js/2.aacb76dc.chunk.js",
     "static/css/main.bbccf8e8.chunk.css",
     "static/js/main.7afa0dec.chunk.js"
