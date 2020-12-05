@@ -60,10 +60,12 @@ function switchPlayer(){
     let currPlayerScoreNumber = "S" + Number( playerBool );
     let currPlayer = document.getElementById( currPlayerScoreNumber );
     currPlayer.parentElement.style.background = "rgb(170, 40, 10)";
+    currPlayer.parentElement.style.animation = "blinker 1s linear 0";
     playerBool = !playerBool;
     let nextPlayerScoreNumber = "S" + Number( playerBool );
     let nextPlayer = document.getElementById( nextPlayerScoreNumber );
     nextPlayer.parentElement.style.background = "rgb(0, 100, 170)";
+    nextPlayer.parentElement.style.animation = "blinker 1s linear infinite";
     return nextPlayerScoreNumber;
 }
 
