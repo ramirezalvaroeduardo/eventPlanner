@@ -37,8 +37,9 @@ function AddPlayerForm() {
                 <li>20 Box Icons Matrix Apprears (Memorize by Pairs)</li>
                 <li>Press Start (Green Button)</li>
                 <li>Click on Pair of Button Numbers</li>
-                <li> - If No Match, Game will switch Player.)</li>
-                <li> - Scores will be updated accordingly.)</li>
+                <li> - Blue is current Player.</li>
+                <li> - If No Match, Game will switch Player.</li>
+                <li> - Scores will be updated accordingly.</li>
                 <li>Press Reset Button to Start another Game.</li>
             </ul>
             <Form>
