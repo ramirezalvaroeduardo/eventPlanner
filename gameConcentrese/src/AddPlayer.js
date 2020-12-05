@@ -24,6 +24,7 @@ function submitPlayer( event ){
 }
 
 function showMatrixForm() {
+    document.getElementById( "Action" ).style.display = "block";
     document.querySelector( ".MatrixBox" ).style.display = "block";
     document.querySelector( ".PlayerForm" ).style.display = "none";
 }
@@ -37,7 +38,7 @@ function AddPlayerForm() {
                 <li>20 Box Icons Matrix Apprears (Memorize by Pairs)</li>
                 <li>Press Start (Green Button)</li>
                 <li>Click on Pair of Button Numbers</li>
-                <li> - Blue is current Player.</li>
+                <li> - Blinking Blue is current Player.</li>
                 <li> - If No Match, Game will switch Player.</li>
                 <li> - Scores will be updated accordingly.</li>
                 <li>Press Reset Button to Start another Game.</li>

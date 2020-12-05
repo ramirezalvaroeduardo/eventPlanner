@@ -23,6 +23,8 @@ function MatrixBox( props ){
 }
 
 function startGame() {
+    let nextPlayer = document.getElementById( "S0" );
+    nextPlayer.parentElement.style.animation = "blinker 1s linear infinite";
     for( let boxNumber of document.getElementsByClassName( "MatrixNumber" ) ){
         boxNumber.style.display="block";
     }
