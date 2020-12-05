@@ -40,7 +40,7 @@
     border-radius: 10px;
 }
 
-@media (max-width: 64rem) {
+@media (max-width: 48rem) {
     .Title {
         font-size: 1.25rem;
     }
