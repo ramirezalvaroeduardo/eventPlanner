@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/gameConcentrese/static/css/main.59ca1d3e.chunk.css",
+    "main.css": "/gameConcentrese/static/css/main.8e39fc66.chunk.css",
     "main.js": "/gameConcentrese/static/js/main.fd5c903a.chunk.js",
     "main.js.map": "/gameConcentrese/static/js/main.fd5c903a.chunk.js.map",
     "runtime-main.js": "/gameConcentrese/static/js/runtime-main.54ecf796.js",
@@ -8,13 +8,13 @@
     "static/js/2.3768a355.chunk.js": "/gameConcentrese/static/js/2.3768a355.chunk.js",
     "static/js/2.3768a355.chunk.js.map": "/gameConcentrese/static/js/2.3768a355.chunk.js.map",
     "index.html": "/gameConcentrese/index.html",
-    "static/css/main.59ca1d3e.chunk.css.map": "/gameConcentrese/static/css/main.59ca1d3e.chunk.css.map",
+    "static/css/main.8e39fc66.chunk.css.map": "/gameConcentrese/static/css/main.8e39fc66.chunk.css.map",
     "static/js/2.3768a355.chunk.js.LICENSE.txt": "/gameConcentrese/static/js/2.3768a355.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.54ecf796.js",
     "static/js/2.3768a355.chunk.js",
-    "static/css/main.59ca1d3e.chunk.css",
+    "static/css/main.8e39fc66.chunk.css",
     "static/js/main.fd5c903a.chunk.js"
   ]
 }
